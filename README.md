@@ -1,14 +1,15 @@
-# Instructions to reproduce analysis results
+# Instructions to reproduce simulation results in Tables 1 and 2
 
-
-
-To run the scripts in the code folder, run
+To generate data as per simulation plan described in Section 5 of main article, run
 
 ```sh
 R CMD BATCH code/data-gen-simulation-code.R
 ```
 
-However, you may need to change the parameter ...
+You may need to change the parameters: n and beta.0.true.
+This will produce a fixed X matrix, and M = 400 Monte-Carlo replication of y, for each choice of error distribution.
+error.distribution.1 = N(0,1)
+error.distribution.2 = scaled and centered chi.square(1)
 
 
 
