@@ -57,6 +57,7 @@ The above values represent empirical coverages for Symmetric Residual Bootstrap 
 
 The third output line int.count represents how many times $\boldsymbol{\beta}_{0,1}$ was estimated as a zero-coefficient, in the 400 simulations. The code takes roughly 20 minutes to run with parallel processing on 7 cores on my desktop. My desktop has 48gb RAM and uses Intel® Xeon(R) CPU E5-1620 v3 @ 3.50GHz × 8 processor.
 
+For convenience of readers, two output files
 
 # Instructions to reproduce real-data analysis results in Tables 3 and 4
 
@@ -120,3 +121,4 @@ Using a common choice of $\lambda$ a reliable set of 8 active variables is ident
 [1] "G2582" "G3758" "G4425" "G5580" "G5611" "G6007" "G6031" "G6356"
 
 ```
+The file real-data-output.Rdata has been included in the output directory.
