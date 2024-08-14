@@ -1,0 +1,11 @@
+The Ro131.csv file contains 6319 rows and 30 columns.
+The data matrix is read into R and it is then transposed.
+The 6319 columns correspond to various predictor genes.
+Details are available in Segal et al (2003).
+The response vector y is manually entered, containing 30 entries.
+
+# y.main <- c(143,84,98,83,153,141,191,130,744,381,1047,
+		806,621,849,475,966,708,487,1447,1693,1731,1025,376,126,102,149,91,153,235,68)
+
+rest of the preprocessing is done in combined-real-data-analysis.R
+
