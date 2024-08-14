@@ -57,7 +57,7 @@ The above values represent empirical coverages for Symmetric Residual Bootstrap 
 
 The third output line int.count represents how many times $\boldsymbol{\beta}_{0,1}$ was estimated as a zero-coefficient, in the 400 simulations. The code takes roughly 20 minutes to run with parallel processing on 7 cores on my desktop. My desktop has 48gb RAM and uses Intel® Xeon(R) CPU E5-1620 v3 @ 3.50GHz × 8 processor.
 
-For convenience of readers, two output files
+For convenience of readers, two output files out-n-300-p-500-coef-beta-1-errtype-2.Rdata and 
 
 # Instructions to reproduce real-data analysis results in Tables 3 and 4
 
