@@ -6,13 +6,15 @@ To generate data as per simulation plan described in Section 5 of main article, 
 R CMD BATCH code/data-gen-simulation-code.R
 ```
 
-You may need to change the parameters: n and beta.0.true.
+You may need to change the parameters: n and beta.0.true (see end of data-gen-simulation-code.R)
 
 This will produce a fixed X matrix, and M = 400 Monte-Carlo replication of y, for each choice of error distribution.
 
 error.distribution.1 = N(0,1)
 
 error.distribution.2 = scaled and centered chi.square(1)
+
+Both Monte-Carlo data sets (for each choice of error distribution) are saved in a file yx-all-n-p.Rdata
 
 
 
