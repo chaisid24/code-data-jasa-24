@@ -1,3 +1,17 @@
+# Instructions to reproduce analysis results
+
+
+
+To run the scripts in the code folder, run
+
+```sh
+R CMD BATCH code/data-gen-simulation-code.R
+```
+
+However, you may need to change the parameter ...
+
+
+
 JASA Reproducibility Materials Template
 ================
 
