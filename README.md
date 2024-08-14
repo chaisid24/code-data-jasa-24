@@ -8,7 +8,7 @@ R CMD BATCH code/data-gen-simulation-code.R
 
 You may need to change the parameters: n and beta.0.true (see end of data-gen-simulation-code.R)
 
-This will produce a fixed X matrix, and M = 400 Monte-Carlo replication of y, for each choice of error distribution.
+This will produce a fixed X matrix, and M = 400 Monte-Carlo replications of y (n dimensional response vector), for each choice of error distribution.
 
 error.distribution.1 = N(0,1)
 
