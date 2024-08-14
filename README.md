@@ -55,7 +55,9 @@ n= 300  p= 500
 ```
 The above values represent empirical coverages for Symmetric Residual Bootstrap (RB) (0.907), Symmetric Perturbation Bootstrap (PB) (0.877) and Oracle Based (0.805) two sided 90% nominal confidence intervals (from left to right) for $\boldsymbol{\beta}_{0,1}$. 
 
-The third output line int.count represents how many times $\boldsymbol{\beta}_{0,1}$ was estimated as a zero-coefficient, in the 400 simulations. The code takes roughly 20 minutes to run with parallel processing on 7 cores on my desktop. My desktop has 48gb RAM and uses Intel® Xeon(R) CPU E5-1620 v3 @ 3.50GHz × 8 processor.
+The third output line int.count represents how many times $\boldsymbol{\beta}_{0,1}$ was estimated as a zero-coefficient, in the 400 simulations. 
+
+The code takes roughly 20 minutes to run with parallel processing on 7 cores on my desktop. My desktop has 48gb RAM and uses Intel® Xeon(R) CPU E5-1620 v3 @ 3.50GHz × 8 processor.
 
 For convenience of readers, two output files out-n-300-p-500-coef-beta-1-errtype-2.Rdata and out-plols-n-300-p-500-coef-beta-10-errtype-1.Rdata, containing output of simulation results have been included in the output directory.
 
