@@ -292,4 +292,28 @@ postlasso.ols.all <- function(n, p, CV.k, coef.index, alpha, B, err.type)
 	#return(beta.array)	
 }
 
-postlasso.ols.all(n = 50, p = 90, CV.k = 3, coef.index = 4, alpha = 0.05, B = 500, err.type = 2)
+# uncomment as per requirement
+# for n = 25 case, CV.k = 3 can be tried
+# for (n,p) = (25,90), we used p_0 = 3
+# for (n,p) = (50,90), we used p_0 = 4
+# for p = 500 cases, we used p_0 = 10
+
+#postlasso.ols.all(n = 25, p = 90, CV.k = 5, coef.index = 1, alpha = 0.1, B = 500, err.type = 1)
+#postlasso.ols.all(n = 25, p = 90, CV.k = 5, coef.index = 3, alpha = 0.1, B = 500, err.type = 1)
+#postlasso.ols.all(n = 25, p = 90, CV.k = 5, coef.index = 1, alpha = 0.1, B = 500, err.type = 2)
+#postlasso.ols.all(n = 25, p = 90, CV.k = 5, coef.index = 3, alpha = 0.1, B = 500, err.type = 2)
+
+#postlasso.ols.all(n = 50, p = 90, CV.k = 5, coef.index = 1, alpha = 0.1, B = 500, err.type = 1)
+#postlasso.ols.all(n = 50, p = 90, CV.k = 5, coef.index = 4, alpha = 0.1, B = 500, err.type = 1)
+#postlasso.ols.all(n = 50, p = 90, CV.k = 5, coef.index = 1, alpha = 0.1, B = 500, err.type = 2)
+#postlasso.ols.all(n = 50, p = 90, CV.k = 5, coef.index = 4, alpha = 0.1, B = 500, err.type = 2)
+
+#postlasso.ols.all(n = 150, p = 500, CV.k = 5, coef.index = 1, alpha = 0.1, B = 500, err.type = 1)
+#postlasso.ols.all(n = 150, p = 500, CV.k = 5, coef.index = 10, alpha = 0.1, B = 500, err.type = 1)
+#postlasso.ols.all(n = 150, p = 500, CV.k = 5, coef.index = 1, alpha = 0.1, B = 500, err.type = 2)
+#postlasso.ols.all(n = 150, p = 500, CV.k = 5, coef.index = 10, alpha = 0.1, B = 500, err.type = 2)
+
+#postlasso.ols.all(n = 300, p = 500, CV.k = 5, coef.index = 1, alpha = 0.1, B = 500, err.type = 1)
+#postlasso.ols.all(n = 150, p = 500, CV.k = 5, coef.index = 10, alpha = 0.1, B = 500, err.type = 1)
+#postlasso.ols.all(n = 150, p = 500, CV.k = 5, coef.index = 1, alpha = 0.1, B = 500, err.type = 2)
+#postlasso.ols.all(n = 150, p = 500, CV.k = 5, coef.index = 10, alpha = 0.1, B = 500, err.type = 2)
