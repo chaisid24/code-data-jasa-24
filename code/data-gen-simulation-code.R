@@ -2,6 +2,7 @@
 rm(list = ls())
 library(mvtnorm)
 
+# function to generate errors epsilon.i
 error.fn = function(i, n.size, err.type)
 {
 	if(err.type == 1)
@@ -14,6 +15,9 @@ error.fn = function(i, n.size, err.type)
 	}
 	return(err.vec) 
 }
+
+# function to generate X matrix 
+# then generate M sets of y vector for each choice of error d.f.
 
 yx.gen = function(n, beta.0.true, rho, M)
 {
@@ -40,7 +44,9 @@ yx.gen = function(n, beta.0.true, rho, M)
 	y.array = array(0, dim = c(2, n, M))
 	for(j in 1:2)
 	{
-		y.array[j, , ] = as.vector(signal.true) + sapply(1:M, error.fn, n.size = n, err.type = j) 
+		# j = 1 :for N(0,1) error
+		# j = 2 :for chi.square(1) error
+		y.array[j, , ] = as.vector(signal.true) + sapply(1:M, error.fn, n.size = n, err.type = j)  
 	}
 	yx.list = list()
 	yx.list[[1]] <- y.array
