@@ -2,6 +2,8 @@ rm(list = ls())
 library(parallel)
 library(glmnet)
 
+# see comments included in the alasso-simulation-code.R file
+
 postlasso.ols.fn = function(y, X.scale, CV.list)
 {
 	n = nrow(X.scale)
