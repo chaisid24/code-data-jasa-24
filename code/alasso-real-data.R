@@ -1,13 +1,20 @@
+# this code computes alasso based symmetric confidence intervals for observed non-zero coefficients
+# using both residual bootstrap and perturbation bootstrap based approaches.
+# it also computes alasso based confidence intervals using the oracle limit law
+
 #rm(list = ls())
 #library(parallel)
 #library(glmnet)
 
+
+# computes alasso estimates at an optimal lambda, which is obtained by k-fold CV
+# if (previously found) lambda is supplied and alasso estimate at that lambda value is computed
 alasso.fn = function(y, X.scale, CV.list)
 {
 	n = nrow(X.scale)
 	p = ncol(X.scale)
-	lam.search.logic = CV.list[[1]] # = 1 emphasises that CV based search is required #
-	CV.k = CV.list[[2]] # the k-fold parameter #
+	lam.search.logic = CV.list[[1]] 	## = 1 emphasises that CV based search is required 
+	CV.k = CV.list[[2]] 			## the k-fold CV parameter 
 
 	if(lam.search.logic == 1) # do a CV based search for lambda for the initial Lasso estimator #
 	{
@@ -50,12 +57,15 @@ alasso.fn = function(y, X.scale, CV.list)
 }
 
 
+# alasso estimates for bootstrapped data set
+# b : index for the b-th bootstrap data set, b = 1,...,B
 alasso.within.boot <- function(b, y.boot.mat, X, CV.related.list)
 {
 	beta.star.all = alasso.fn(y.boot.mat[ ,b], X, CV.related.list)[[1]] # a px2 matrix #
 	return(beta.star.all) 
 }
 
+# intermediate step for computing symmetric bias adjusted bootstrap statistic
 c1.fn = function(b, beta.s.init.mat, beta.s.mat, X.mat, lam, d.vec, y.star.mat, beta.hat)
 {
 	n = nrow(X.mat)
@@ -74,6 +84,7 @@ c1.fn = function(b, beta.s.init.mat, beta.s.mat, X.mat, lam, d.vec, y.star.mat, 
 	return(abs(R.star.dot.2))
 }
 
+# intermediate step
 c2.fn = function(b, beta.ss.mat, beta.ss.init.mat, X, y, CV.lam, d.vec, G.mat, mu.G, beta.hat)
 {
 	beta.ss = beta.ss.mat[ ,b]
@@ -98,6 +109,8 @@ c2.fn = function(b, beta.ss.mat, beta.ss.init.mat, X, y, CV.lam, d.vec, G.mat, m
 	term.2 = (Tn.ss - sqrt(n)*b.breve.ss)/sqrt(sigma.ss.dot2.sqr)
 	return(term.2)	
 }
+
+# computing residual bootstrap based confidence interval
 rbci.fn = function(y, X, CV.k, coef.index, B, alpha, init.info.list)
 {
 	n = nrow(X)
@@ -137,9 +150,10 @@ rbci.fn = function(y, X, CV.k, coef.index, B, alpha, init.info.list)
 	quant.rb = quantile(R.star.dot.2.abs, probs = 1-alpha)
 	ci.rb = rep(theta.hat - b.breve, 2) + c(-1, 1)*term.1*quant.rb
 	#length.rb = abs(ci.rb[2] - ci.rb[1])
-    return(ci.rb)
+    	return(ci.rb)
 }
 
+# computing perturbation bootstrap based confidence interval
 pbci.fn = function(y, X, CV.k, coef.index, B, alpha, init.info.list)
 {
 	n = nrow(X)
