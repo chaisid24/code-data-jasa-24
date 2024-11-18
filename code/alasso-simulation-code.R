@@ -107,6 +107,8 @@ c2.fn = function(b, beta.ss.mat, beta.ss.init.mat, X, y, CV.lam, d.vec, G.mat, m
 	term.2 = (Tn.ss - sqrt(n)*b.breve.ss)/sqrt(sigma.ss.dot2.sqr)
 	return(term.2)	
 }
+
+# RB part
 rbci.fn = function(y, X, CV.k, coef.index, B, alpha, beta.0, init.info.list)
 {
 	n = nrow(X)
@@ -153,6 +155,7 @@ rbci.fn = function(y, X, CV.k, coef.index, B, alpha, beta.0, init.info.list)
 	return(rb.ci.out)
 }
 
+# PB part
 pbci.fn = function(y, X, CV.k, coef.index, B, alpha, beta.0, init.info.list)
 {
 	n = nrow(X)
@@ -211,6 +214,8 @@ pbci.fn = function(y, X, CV.k, coef.index, B, alpha, beta.0, init.info.list)
 	logic.pb.ci = ifelse(pb.ci[1]<= theta.0 & theta.0 <= pb.ci[2], 1, 0)
 	return(cbind(c(logic.pb.ci, len.pb.ci), pb.ci))
 }
+
+# output for m-th Monte Carlo data-set
 data.set.m = function(m, y.mat, X.scale, CV.k, coef.index, B, alpha, beta.0)
 {
 	y = y.mat[ ,m]
@@ -275,7 +280,7 @@ data.set.m = function(m, y.mat, X.scale, CV.k, coef.index, B, alpha, beta.0)
 	return(out.list)
 }
 
-
+#output for all M data sets
 alasso.all <- function(n, p, CV.k, coef.index, alpha, B, err.type)
 {
 	my.file.name = paste("yx-all-n-",n,"-p-",p,".Rdata", sep = "")
